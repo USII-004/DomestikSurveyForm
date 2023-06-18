@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domestik</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+          <h1 id="title" class="text-center">Domestik Survey Form</h1>
+          <p id="description" class="description text-center">
+            Survey form for prospective domestik users
+          </p>
+        </header>
+        <form id="survey-form">
+          <div class="inputs">
+            <div class="form-group" id="firstName-container">
+              <label id="firstName-label" for="firstName">First Name<span id="firstNameValidationMessage" class="validation-message"></span></label>
+              <input type="text" name="firstName" id="firstName" class="form-control" placeholder="" required/>
+            </div>
+            <div class="form-group" id="lastName-container">
+              <label id="lastName-label" for="lastName">Last Name<span id="lastNameValidationMessage" class="validation-message"></span></label>
+              <input type="text" name="lastName" id="lastName" class="form-control" placeholder="" required/>
+            </div>
+            <div class="form-group" id="otherName-container">
+              <label id="otherName-label" for="otherName">Other Name<span id="otherNameValidationMessage" class="validation-message"></span></label>
+              <input type="text" name="otherName" id="otherName" class="form-control" placeholder=""/>
+            </div>
+            <div class="form-group" id="email-container">
+              <label id="email-label" for="email">Email<span id="emailValidationMessage" class="validation-message"></span></label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="" required/>
+            </div>
+            <div class="form-group" id="age-container">
+              <label id="number-label" for="number">Age<span class="clue">(optional)</span></label>
+              <input type="number" name="age" id="age" min="10" max="99" class="form-control"/>
+            </div>
+          </div>
+        
+          <div class="form-group" id="user-service">
+            <p>What do you mostly use the Domestik app for?</p>
+            <label>
+              <input name="user-services" value="provide-services" type="radio" class="input-radio" checked/>Provide Services</label>
+            <label>
+              <input name="user-services" value="hire-services" type="radio" class="input-radio"/>Hire Services</label>
+            <label>
+                <input name="user-services" value="Both" type="radio" class="input-radio"/>Mostly Both</label>
+          </div>
+          <div class="form-group">
+            <p>What services do you mostly provide or hire using the Domestik app??</p>
+            <select id="most-like" name="mostLike" class="form-control" required>
+              <option id="select-an-option" disabled selected value>Select an option</option>
+              <option id="cleaning" value="cleaning">Cleaning</option>
+              <option id="laundry" value="laundry">Laundry</option>
+              <option id="dog-walking" value="dog-walking">Dog walking</option>
+              <option id="outdoor-errands" value="outdoor-errands">Outdoor errands</option>
+              <option value="baby-sitting">Baby sitting</option>
+              <option value="gardening">Gardening</option>
+              <option value="plumbering">Plumbering</option>
+              <option value="home-appliance-repair">Home appliance repair</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <p>What other services have you rendered or hire using the Domestik app?<span class="clue">(Check all that apply)</span></p>
+            <div id="cleaning-checkbox-container">
+              <label><input name="other-services" value="cleaning" type="checkbox" class="input-checkbox"/>Cleaning</label>
+            </div>
+            <div id="laundry-checkbox-container">
+              <label><input name="other-services" value="laundry" type="checkbox" class="input-checkbox"/>Laundry</label>
+            </div>
+            <div id="dog-walking-checkbox-container">
+              <label><input name="other-services" value="dog-walking" type="checkbox" class="input-checkbox" />Dog walking</label>
+            </div>
+            <div id="outdoor-errands-checkbox-container">
+              <label><input name="other-services" value="outdoor-errands" type="checkbox" class="input-checkbox"/>Outdoor errands</label>
+            </div>
+            <div id="baby-sitting-checkbox-container">
+              <label><input name="other-services" value="baby-sitting" type="checkbox" class="input-checkbox"/>Baby sitting</label>
+            </div>
+            <div id="gardening-checkbox-container">
+              <label><input name="other-services" value="gardening" type="checkbox" class="input-checkbox"/>Gardening</label>
+            </div>
+            <div id="plumbering-checkbox-container">
+              <label><input name="other-services" value="plumbering" type="checkbox" class="input-checkbox"/>Plumbering</label>
+            </div>
+            <div id="home-appliance-repair-checkbox-container">
+              <label><input name="other-services" value="home-appliance-repair" type="checkbox" class="input-checkbox"/>Home appliance repair</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <p>Any comments or suggestions as regards the Domestik app?</p>
+            <textarea id="comments" class="input-textarea" name="comment" placeholder="Enter your comment here..."></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" id="submit" class="submit-button">Submit</button>
+          </div>
+        </form>
+      </div>
+  <script type="text/javascript" src="validateInput.js"></script>          
+</body>
+</html>
