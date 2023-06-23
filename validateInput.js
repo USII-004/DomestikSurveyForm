@@ -1,14 +1,4 @@
-// function enterUsername () {
-//   let inputName = document.getElementById("name");
-//   inputName.setAttribute("placeholder", "please enter a your name");
-// }
-
-// function enterEmail () {
-//   let inputEmail = document.getElementById("email");
-//   inputEmail.setAttribute("placeholder", "please enter a your email address")
-// }
-
-// this functions above will help instruct the user to enter their name and eamil 
+// this functions above will help instruct the user to enter their name and email 
 // if the field is empty.
 
 document.getElementById("firstName").onblur = function () {
@@ -73,7 +63,7 @@ otherName.addEventListener('input', () => {
     }
   }
 });
-
+// event listener to validate email inputs
 email.addEventListener('change', () => {
   let emailTextBox = document.getElementById("email");
   let message = document.getElementById("emailValidationMessage");
@@ -86,60 +76,55 @@ email.addEventListener('change', () => {
   }
 });
 
-// function validateName() {
-//   let nameTextBox = document.getElementById("firstName");
-//   let firstName = nameTextBox.value;
-//   let firstNameRegex = /\D+/;
+// function to remove selected items from checkbox
 
-//   let message = document.getElementById("validationMessage");
-
-//   if (nameTextBox != "") {
-//     if (firstNameRegex.test(firstName)) {
-//       message.innerHTML = "  (this input is valid)";
-//     } else {
-//       message.innerHTML = "  (this input is invalid)";
-//     }
-//   }
-// }
-
-// this functionabove does not work as expected
-// the border property does not change and also
-// even when  the function is set to change the 
-// background color . it still shows red when 
-// no key has been pressed, and it never shows 
-// green and also when a number is entered using
-// browser suggestion, the input is accepted. 
 let selectBox = document.getElementById("most-like");
 let selectedOption;
-let previousOption = null;
+let previousOption;
 
-selectBox.addEventListener("change",function removeItem() {
-  if (previousOption != selectedOption) {
-    selectBox.removeEventListener("change", removeItem); 
+selectBox.addEventListener("change", removeItem);
+
+function removeItem() {
+  if (previousOption == "cleaning") {
+    document.getElementById("cleaning-checkbox-container").style.display = "block";    
+  }else if (previousOption == "laundry") {
+    document.getElementById("laundry-checkbox-container").style.display = "block";    
+  } else if (previousOption == "dog-walking") {
+    document.getElementById("dog-walking-checkbox-container").style.display = "block";    
+  }else if (previousOption == "outdoor-errands") {
+    document.getElementById("outdoor-errands-checkbox-container").style.display = "block";    
+  }else if (previousOption == "baby-sitting") {
+    document.getElementById("baby-sitting-checkbox-container").style.display = "block";    
+  }else if (previousOption == "gardening") {
+    document.getElementById("gardening-checkbox-container").style.display = "block";    
+  }else if (previousOption == "plumbering") {
+    document.getElementById("plumbering-checkbox-container").style.display = "block";    
+  }else if (previousOption == "home-appliance-repair") {
+    document.getElementById("home-appliance-repair-checkbox-container").style.display = "block";    
   }
+  // if statement to display the removed items in the checkbox
+
   selectedOption = selectBox.value;
   if (selectedOption == "cleaning") {
-    document.getElementById("cleaning-checkbox-container").remove();    
+    document.getElementById("cleaning-checkbox-container").style.display = "none";    
   }else if (selectedOption == "laundry") {
-    document.getElementById("laundry-checkbox-container").remove();    
+    document.getElementById("laundry-checkbox-container").style.display = "none";    
   } else if (selectedOption == "dog-walking") {
-    document.getElementById("dog-walking-checkbox-container").remove();    
+    document.getElementById("dog-walking-checkbox-container").style.display = "none";    
   }else if (selectedOption == "outdoor-errands") {
-    document.getElementById("outdoor-errands-checkbox-container").remove();    
+    document.getElementById("outdoor-errands-checkbox-container").style.display = "none";    
   }else if (selectedOption == "baby-sitting") {
-    document.getElementById("baby-sitting-checkbox-container").remove();    
+    document.getElementById("baby-sitting-checkbox-container").style.display = "none";    
   }else if (selectedOption == "gardening") {
-    document.getElementById("gardening-checkbox-container").remove();    
+    document.getElementById("gardening-checkbox-container").style.display = "none";    
   }else if (selectedOption == "plumbering") {
-    document.getElementById("plumbering-checkbox-container").remove();    
+    document.getElementById("plumbering-checkbox-container").style.display = "none";    
   }else if (selectedOption == "home-appliance-repair") {
-    document.getElementById("home-appliance-repair-checkbox-container").remove();    
+    document.getElementById("home-appliance-repair-checkbox-container").style.display = "none";    
   }
   previousOption = selectedOption;
-});
+}
 
-//this piece of code above dosen't work as exected, this will remove the selected
-// option from the checkbox but when another item is selected the removed item is
-// is not returned. hence if all the item in the select box were to be clicked 
-// once there will be no more item in the check box. i need to figure out a way to
-// make sure that the item removed is returned when another option is selected.
+//this code now works as expected as the removed items is returned wheever another item is
+// selected. However this are spagheti code as there must be a way to rewrite the code
+// and reduce the long  if else statements. 
